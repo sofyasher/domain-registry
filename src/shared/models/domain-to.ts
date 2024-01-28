@@ -1,10 +1,6 @@
 export interface DomainTo {
   fqdn: string;
-  nsset: {
-    handle: string;
-    registrar: string;
-    dns: DnsItemTo[];
-  };
+  nsset: NSSetTo;
   keyset: KeySetTo;
   owner: {
     handle: string;
@@ -51,6 +47,12 @@ export interface KeySetTo {
   handle: string;
   registrar: string;
   dns_keys: string[];
+}
+
+export interface NSSetTo {
+  handle: string;
+  registrar: string;
+  dns: DnsItemTo[];
 }
 
 interface EventTo {
