@@ -1,5 +1,5 @@
 <template>
-  <InfoCard v-if="keySet" title="Key Set:">
+  <InfoCard v-if="keySet" title="KeySet:">
     <InfoRow>
       <template v-slot:label>Handle:</template>
       <template v-slot:info>

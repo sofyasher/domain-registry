@@ -1,5 +1,5 @@
 <template>
-  <InfoCard v-if="nsSet" title="Key Set:">
+  <InfoCard v-if="nsSet" title="NSSet:">
     <InfoRow>
       <template v-slot:label>Handle:</template>
       <template v-slot:info>
@@ -17,10 +17,10 @@
       </template>
     </InfoRow>
     <InfoRow>
-      <template v-slot:label>DNS keys:</template>
+      <template v-slot:label>DNS:</template>
       <template v-slot:info>
         <div v-for="dns in nsSet.dns" v-bind:key="dns.ip_address">
-          {{ dns.name }}
+          {{ dns.name }} ({{ dns.ip_address }})
         </div>
       </template>
     </InfoRow>
