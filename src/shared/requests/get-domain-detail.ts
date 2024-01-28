@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DomainTo } from "@/shared/models/domain-to";
+import { DomainTo } from "@/shared/tos/domain-to";
 
 export const getDomainDetail = () =>
   axios.get<DomainTo>(

@@ -15,7 +15,7 @@ interface DnsItemTo {
   ip_address: string;
 }
 
-export interface ContactTo {
+interface ContactTo {
   handle: string;
   organization: string;
   name: string;
@@ -25,20 +25,20 @@ export interface ContactTo {
   };
 }
 
-export interface EventsTo {
+interface EventsTo {
   registered: EventTo;
   transferred: EventTo | null;
   updated: EventTo | null;
   unregistered: EventTo | null;
 }
 
-export interface KeySetTo {
+interface KeySetTo {
   handle: string;
   registrar: string;
   dns_keys: string[];
 }
 
-export interface NSSetTo {
+interface NSSetTo {
   handle: string;
   registrar: string;
   dns: DnsItemTo[];
@@ -49,13 +49,13 @@ interface EventTo {
   registrar_handle: string;
 }
 
-export interface StateFlagTo {
+interface StateFlagTo {
   name: string;
   active: boolean;
   description: string;
 }
 
-export interface StateFlagsTo {
+interface StateFlagsTo {
   flags: StateFlagTo[];
   groups: string[][];
 }

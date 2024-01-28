@@ -4,7 +4,9 @@
     <v-switch label="Verbose view" v-model="isVerboseViewOn"></v-switch>
     <v-row>
       <v-col sm="8">
-        <AuthInfoCard :expires-at="domainData.expires_at"></AuthInfoCard>
+        <AuthInfoCard
+          :expires-at="domainData.expires_at.toLocaleString()"
+        ></AuthInfoCard>
         <EventsCard :events="domainData.events"></EventsCard>
         <StateFlagsCard
           :is-verbose-view-on="isVerboseViewOn"
@@ -26,7 +28,7 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-import { DomainTo } from "@/shared/models/domain-to";
+import { DomainVM } from "@/shared/models/domain-vm";
 import { getDomainDetail } from "@/shared/requests/get-domain-detail";
 import EventsCard from "@/components/section-cards-components/EventsCard.vue";
 import KeySetCard from "@/components/section-cards-components/KeySetCard.vue";
@@ -35,13 +37,14 @@ import ContactCard from "@/components/section-cards-components/ContactCard.vue";
 import StateFlagsCard from "@/components/section-cards-components/StateFlagsCard.vue";
 import AuthInfoCard from "@/components/section-cards-components/AuthInfoCard.vue";
 import AdministrativeContactsCard from "@/components/section-cards-components/AdministrativeContactsCard.vue";
+import { DomainMapper } from "@/shared/mappers/domain-mapper";
 
-const domainData = ref<DomainTo | null>(null);
+const domainData = ref<DomainVM | null>(null);
 const isVerboseViewOn = ref<boolean>(false);
 
 onMounted(() => {
   getDomainDetail().then(({ data }) => {
-    domainData.value = data;
+    domainData.value = DomainMapper.fromToToModel(data);
   });
 });
 </script>

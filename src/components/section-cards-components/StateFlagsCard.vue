@@ -34,18 +34,18 @@
 
 <script lang="ts" setup>
 import { onMounted, PropType, ref } from "vue";
-import { StateFlagsTo, StateFlagTo } from "@/shared/models/domain-to";
+import { StateFlagsVM, StateFlagVM } from "@/shared/models/domain-vm";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 import CheckIcon from "@/components/icons-components/CheckIcon.vue";
 import CloseIcon from "@/components/icons-components/CloseIcon.vue";
 
 const props = defineProps({
   isVerboseViewOn: Boolean,
-  stateFlags: Object as PropType<StateFlagsTo>,
+  stateFlags: Object as PropType<StateFlagsVM>,
 });
 
 const groups = ref<string[][] | undefined>([[]]);
-const activeFlags = ref<StateFlagTo[]>([]);
+const activeFlags = ref<StateFlagVM[]>([]);
 
 onMounted(() => {
   groups.value = props.stateFlags?.groups;
@@ -65,7 +65,7 @@ onMounted(() => {
     props.stateFlags?.flags.filter((flag) => flag.active) ?? [];
 });
 
-const getFlagStateByKey = (key: string): StateFlagTo | undefined => {
+const getFlagStateByKey = (key: string): StateFlagVM | undefined => {
   return props?.stateFlags?.flags.find((flag) => flag.name === key);
 };
 </script>

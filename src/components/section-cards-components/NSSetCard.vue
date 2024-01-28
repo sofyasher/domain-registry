@@ -30,11 +30,11 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
-import { NSSetTo } from "@/shared/models/domain-to";
+import { NSSetVM } from "@/shared/models/domain-vm";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 
 defineProps({
-  nsSet: Object as PropType<NSSetTo>,
+  nsSet: Object as PropType<NSSetVM>,
 });
 </script>
 

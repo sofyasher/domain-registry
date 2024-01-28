@@ -30,11 +30,11 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
-import { KeySetTo } from "@/shared/models/domain-to";
+import { KeySetVM } from "@/shared/models/domain-vm";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 
 defineProps({
-  keySet: Object as PropType<KeySetTo>,
+  keySet: Object as PropType<KeySetVM>,
 });
 </script>
 

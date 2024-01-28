@@ -19,13 +19,13 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
-import { ContactTo } from "@/shared/models/domain-to";
+import { ContactVM } from "@/shared/models/domain-vm";
 import ContactCard from "@/components/section-cards-components/ContactCard.vue";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 
 defineProps({
   isVerboseViewOn: Boolean,
-  contacts: Object as PropType<ContactTo[]>,
+  contacts: Object as PropType<ContactVM[]>,
 });
 </script>
 

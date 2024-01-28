@@ -32,14 +32,14 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
-import { ContactTo } from "@/shared/models/domain-to";
+import { ContactVM } from "@/shared/models/domain-vm";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 import VisibleEyeIcon from "@/components/icons-components/VisibleEyeIcon.vue";
 import HiddenEyeIcon from "@/components/icons-components/HiddenEyeIcon.vue";
 
 defineProps({
   title: String,
-  contact: Object as PropType<ContactTo>,
+  contact: Object as PropType<ContactVM>,
 });
 </script>
 
