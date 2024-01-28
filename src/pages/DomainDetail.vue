@@ -6,6 +6,7 @@
       <v-col sm="8">
         <AuthInfoCard
           :expires-at="domainData.expires_at.toLocaleString()"
+          :secret-password="SECRET_PASSWORD"
         ></AuthInfoCard>
         <EventsCard :events="domainData.events"></EventsCard>
         <StateFlagsCard
@@ -38,6 +39,7 @@ import StateFlagsCard from "@/components/section-cards-components/StateFlagsCard
 import AuthInfoCard from "@/components/section-cards-components/AuthInfoCard.vue";
 import AdministrativeContactsCard from "@/components/section-cards-components/AdministrativeContactsCard.vue";
 import { DomainMapper } from "@/shared/mappers/domain-mapper";
+import { SECRET_PASSWORD } from "@/shared/constants";
 
 const domainData = ref<DomainVM | null>(null);
 const isVerboseViewOn = ref<boolean>(false);
