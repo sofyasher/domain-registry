@@ -7,7 +7,7 @@
       :contact="contact"
     ></ContactCard>
   </template>
-  <InfoCard v-if="!isVerboseViewOn" title="Administrative contacts:">
+  <InfoCard v-else title="Administrative contacts:">
     <div v-for="contact in contacts" v-bind:key="contact.name" class="d-flex">
       {{ contact.name }}:
       <div>

@@ -1,24 +1,34 @@
 <template>
   <InfoCard v-if="stateFlags" title="State flags">
-    <v-row>
-      <v-col
-        v-for="(group, index) in groups"
-        v-bind:key="'flag-group-' + index"
-      >
-        <div v-for="flagKey in group" v-bind:key="flagKey">
-          <template v-if="getFlagStateByKey(flagKey)">
-            <CheckIcon v-if="getFlagStateByKey(flagKey)!.active"></CheckIcon>
-            <CloseIcon v-if="!getFlagStateByKey(flagKey)!.active"></CloseIcon>
-            <span
-              class="flag"
-              :class="{'inactive':!getFlagStateByKey(flagKey)!.active}"
-            >
-              {{ getFlagStateByKey(flagKey).description }}
-            </span>
-          </template>
-        </div>
-      </v-col>
-    </v-row>
+    <template v-if="isVerboseViewOn">
+      <v-row>
+        <v-col
+          v-for="(group, index) in groups"
+          v-bind:key="'flag-group-' + index"
+        >
+          <div v-for="flagKey in group" v-bind:key="flagKey">
+            <template v-if="getFlagStateByKey(flagKey)">
+              <CheckIcon v-if="getFlagStateByKey(flagKey)!.active"></CheckIcon>
+              <CloseIcon v-else></CloseIcon>
+              <span
+                class="flag"
+                :class="{'inactive':!getFlagStateByKey(flagKey)!.active}"
+              >
+                {{ getFlagStateByKey(flagKey).description }}
+              </span>
+            </template>
+          </div>
+        </v-col>
+      </v-row>
+    </template>
+    <template v-else>
+      <div v-for="flag in activeFlags" v-bind:key="flag.name">
+        <CheckIcon></CheckIcon>
+        <span class="flag">
+          {{ flag.description }}
+        </span>
+      </div>
+    </template>
   </InfoCard>
 </template>
 
@@ -35,6 +45,7 @@ const props = defineProps({
 });
 
 const groups = ref<string[][] | undefined>([[]]);
+const activeFlags = ref<StateFlagTo[]>([]);
 
 onMounted(() => {
   groups.value = props.stateFlags?.groups;
@@ -49,6 +60,9 @@ onMounted(() => {
   if (lastGroup && lastGroup.length > 0) {
     groups.value?.push(lastGroup);
   }
+
+  activeFlags.value =
+    props.stateFlags?.flags.filter((flag) => flag.active) ?? [];
 });
 
 const getFlagStateByKey = (key: string): StateFlagTo | undefined => {

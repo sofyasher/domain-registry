@@ -8,7 +8,7 @@
     </div>
     <div class="d-flex">
       <VisibleEyeIcon v-if="contact.publish.organization"></VisibleEyeIcon>
-      <HiddenEyeIcon v-if="!contact.publish.organization"></HiddenEyeIcon>
+      <HiddenEyeIcon v-else></HiddenEyeIcon>
       Organization:
       <div>{{ contact.organization }}</div>
     </div>
@@ -21,7 +21,7 @@
     <!--      </v-row>-->
     <div class="d-flex justify-space-between">
       <VisibleEyeIcon v-if="contact.publish.name"></VisibleEyeIcon>
-      <HiddenEyeIcon v-if="!contact.publish.name"></HiddenEyeIcon>
+      <HiddenEyeIcon v-else></HiddenEyeIcon>
       Name:
       <div>
         {{ contact.name }}
