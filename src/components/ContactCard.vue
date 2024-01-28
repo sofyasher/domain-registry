@@ -1,19 +1,19 @@
 <template>
-  <v-card v-if="owner" variant="outlined">
+  <v-card v-if="contact" variant="outlined">
     <v-card-item>
-      <v-card-title>Owner:</v-card-title>
+      <v-card-title>{{ title }}</v-card-title>
     </v-card-item>
     <v-card-text>
       <div class="d-flex">
         Handle:
         <div>
-          {{ owner.handle }}
+          {{ contact.handle }}
         </div>
       </div>
       <div class="d-flex">
         Organization:
         <div>
-          {{ owner.organization }}
+          {{ contact.organization }}
         </div>
       </div>
       <!--      <v-row class="d-flex justify-space-between">-->
@@ -26,7 +26,7 @@
       <div class="d-flex justify-space-between">
         Name:
         <div>
-          {{ owner.name }}
+          {{ contact.name }}
         </div>
       </div>
     </v-card-text></v-card
@@ -35,10 +35,11 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
-import { OwnerTo } from "@/shared/models/domain-to";
+import { ContactTo } from "@/shared/models/domain-to";
 
 defineProps({
-  owner: Object as PropType<OwnerTo>,
+  title: String,
+  contact: Object as PropType<ContactTo>,
 });
 </script>
 

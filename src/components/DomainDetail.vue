@@ -1,5 +1,5 @@
 <template>
-  <div v-if="domainData" class="hello">
+  <div v-if="domainData" class="pa-10">
     {{ domainData.fqdn }}
     <v-switch label="Verbose view" v-model="isVerboseViewOn"></v-switch>
     <v-row>
@@ -12,7 +12,11 @@
         ></StateFlagsCard
       ></v-col>
       <v-col>
-        <OwnerCard :owner="domainData.owner"></OwnerCard>
+        <ContactCard title="Owner:" :contact="domainData.owner"></ContactCard>
+        <AdministrativeContactsCard
+          :is-verbose-view-on="isVerboseViewOn"
+          :contacts="domainData.administrative_contacts"
+        ></AdministrativeContactsCard>
         <KeySetCard :key-set="domainData.keyset"></KeySetCard>
         <NSSetCard :ns-set="domainData.nsset"></NSSetCard>
       </v-col>
@@ -27,9 +31,10 @@ import { getDomainDetail } from "@/shared/requests/get-domain-detail";
 import EventsCard from "@/components/EventsCard.vue";
 import KeySetCard from "@/components/KeySetCard.vue";
 import NSSetCard from "@/components/NSSetCard.vue";
-import OwnerCard from "@/components/OwnerCard.vue";
+import ContactCard from "@/components/ContactCard.vue";
 import StateFlagsCard from "@/components/StateFlagsCard.vue";
 import AuthInfoCard from "@/components/AuthInfoCard.vue";
+import AdministrativeContactsCard from "@/components/AdministrativeContactsCard.vue";
 
 const domainData = ref<DomainTo | null>(null);
 const isVerboseViewOn = ref<boolean>(false);

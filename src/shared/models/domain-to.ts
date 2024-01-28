@@ -2,9 +2,9 @@ export interface DomainTo {
   fqdn: string;
   nsset: NSSetTo;
   keyset: KeySetTo;
-  owner: OwnerTo;
+  owner: ContactTo;
   sponsoring_registrar: string;
-  administrative_contacts: AdministrativeContactTo[];
+  administrative_contacts: ContactTo[];
   expires_at: string;
   events: EventsTo;
   state_flags: StateFlagsTo;
@@ -15,7 +15,7 @@ interface DnsItemTo {
   ip_address: string;
 }
 
-interface AdministrativeContactTo {
+export interface ContactTo {
   handle: string;
   organization: string;
   name: string;
@@ -42,16 +42,6 @@ export interface NSSetTo {
   handle: string;
   registrar: string;
   dns: DnsItemTo[];
-}
-
-export interface OwnerTo {
-  handle: string;
-  organization: string;
-  name: string;
-  publish: {
-    organization: boolean;
-    name: boolean;
-  };
 }
 
 interface EventTo {
