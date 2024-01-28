@@ -2,15 +2,7 @@ export interface DomainTo {
   fqdn: string;
   nsset: NSSetTo;
   keyset: KeySetTo;
-  owner: {
-    handle: string;
-    organization: string;
-    name: string;
-    publish: {
-      organization: boolean;
-      name: boolean;
-    };
-  };
+  owner: OwnerTo;
   sponsoring_registrar: string;
   administrative_contacts: AdministrativeContactTo[];
   expires_at: string;
@@ -53,6 +45,16 @@ export interface NSSetTo {
   handle: string;
   registrar: string;
   dns: DnsItemTo[];
+}
+
+export interface OwnerTo {
+  handle: string;
+  organization: string;
+  name: string;
+  publish: {
+    organization: boolean;
+    name: boolean;
+  };
 }
 
 interface EventTo {

@@ -3,6 +3,7 @@
     <EventsCard :events="domainData.events"></EventsCard>
     <KeySetCard :key-set="domainData.keyset"></KeySetCard>
     <NSSetCard :ns-set="domainData.nsset"></NSSetCard>
+    <OwnerCard :owner="domainData.owner"></OwnerCard>
   </div>
 </template>
 
@@ -13,6 +14,7 @@ import { getDomainDetail } from "@/shared/requests/get-domain-detail";
 import EventsCard from "@/components/EventsCard.vue";
 import KeySetCard from "@/components/KeySetCard.vue";
 import NSSetCard from "@/components/NSSetCard.vue";
+import OwnerCard from "@/components/OwnerCard.vue";
 
 const domainData = ref<DomainTo | null>(null);
 
