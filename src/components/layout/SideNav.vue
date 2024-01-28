@@ -29,7 +29,7 @@ const items: { label: string; icon: string; isActive: boolean }[] = [
 }
 
 .sidenav-title {
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 10px 20px;
   border-bottom: solid 1px #999999;
 }
 

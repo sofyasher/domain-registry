@@ -7,16 +7,10 @@
           v-bind:key="'flag-group-' + index"
         >
           <div v-for="flagKey in group" v-bind:key="flagKey">
-            <template v-if="getFlagStateByKey(flagKey)">
-              <CheckIcon v-if="getFlagStateByKey(flagKey)!.active"></CheckIcon>
-              <CloseIcon v-else></CloseIcon>
-              <span
-                class="flag"
-                :class="{'inactive':!getFlagStateByKey(flagKey)!.active}"
-              >
-                {{ getFlagStateByKey(flagKey).description }}
-              </span>
-            </template>
+            <StateFlagRow
+              :flag-key="flagKey"
+              :state-flags="stateFlags"
+            ></StateFlagRow>
           </div>
         </v-col>
       </v-row>
@@ -37,45 +31,36 @@ import { onMounted, PropType, ref } from "vue";
 import { StateFlagsVM, StateFlagVM } from "@/shared/models/domain-vm";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 import CheckIcon from "@/components/icons-components/CheckIcon.vue";
-import CloseIcon from "@/components/icons-components/CloseIcon.vue";
+import StateFlagRow from "@/components/section-cards-components/StateFlagRow.vue";
 
 const props = defineProps({
   isVerboseViewOn: Boolean,
   stateFlags: Object as PropType<StateFlagsVM>,
 });
 
-const groups = ref<string[][] | undefined>([[]]);
+const groups = ref<string[][]>([[]]);
 const activeFlags = ref<StateFlagVM[]>([]);
 
 onMounted(() => {
-  groups.value = props.stateFlags?.groups;
+  groups.value = props.stateFlags?.groups ?? [[]];
 
+  activeFlags.value =
+    props.stateFlags?.flags.filter((flag) => flag.active) ?? [];
+
+  // 1. finds keys that are not contained in received groups,
+  // 2. puts them into a separate array
   const lastGroup = props.stateFlags?.flags
     .map((flag) => flag.name)
     .filter(
       (flagKey) =>
-        !groups.value?.some((group) => group.some((key) => flagKey === key))
+        !groups.value.some((group) => group.some((key) => flagKey === key))
     );
 
+  // 3. creates a new group with the keys from 2.
   if (lastGroup && lastGroup.length > 0) {
-    groups.value?.push(lastGroup);
+    groups.value.push(lastGroup);
   }
-
-  activeFlags.value =
-    props.stateFlags?.flags.filter((flag) => flag.active) ?? [];
 });
-
-const getFlagStateByKey = (key: string): StateFlagVM | undefined => {
-  return props?.stateFlags?.flags.find((flag) => flag.name === key);
-};
 </script>
 
-<style scoped lang="scss">
-.flag {
-  color: green;
-
-  &.inactive {
-    color: red;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
