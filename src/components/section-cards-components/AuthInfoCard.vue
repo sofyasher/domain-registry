@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import InfoCard from "@/components/InfoCard.vue";
+import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 
 defineProps({
   expiresAt: String,

@@ -28,13 +28,13 @@
 import { onMounted, ref } from "vue";
 import { DomainTo } from "@/shared/models/domain-to";
 import { getDomainDetail } from "@/shared/requests/get-domain-detail";
-import EventsCard from "@/components/EventsCard.vue";
-import KeySetCard from "@/components/KeySetCard.vue";
-import NSSetCard from "@/components/NSSetCard.vue";
-import ContactCard from "@/components/ContactCard.vue";
-import StateFlagsCard from "@/components/StateFlagsCard.vue";
-import AuthInfoCard from "@/components/AuthInfoCard.vue";
-import AdministrativeContactsCard from "@/components/AdministrativeContactsCard.vue";
+import EventsCard from "@/components/section-cards-components/EventsCard.vue";
+import KeySetCard from "@/components/section-cards-components/KeySetCard.vue";
+import NSSetCard from "@/components/section-cards-components/NSSetCard.vue";
+import ContactCard from "@/components/section-cards-components/ContactCard.vue";
+import StateFlagsCard from "@/components/section-cards-components/StateFlagsCard.vue";
+import AuthInfoCard from "@/components/section-cards-components/AuthInfoCard.vue";
+import AdministrativeContactsCard from "@/components/section-cards-components/AdministrativeContactsCard.vue";
 
 const domainData = ref<DomainTo | null>(null);
 const isVerboseViewOn = ref<boolean>(false);

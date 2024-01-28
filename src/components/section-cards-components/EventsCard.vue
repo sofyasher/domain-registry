@@ -35,7 +35,7 @@
 <script lang="ts" setup>
 import { PropType } from "vue";
 import { EventsTo } from "@/shared/models/domain-to";
-import InfoCard from "@/components/InfoCard.vue";
+import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 
 defineProps({
   events: Object as PropType<EventsTo>,

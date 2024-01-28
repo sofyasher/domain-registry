@@ -20,8 +20,8 @@
 <script lang="ts" setup>
 import { PropType } from "vue";
 import { ContactTo } from "@/shared/models/domain-to";
-import ContactCard from "@/components/ContactCard.vue";
-import InfoCard from "@/components/InfoCard.vue";
+import ContactCard from "@/components/section-cards-components/ContactCard.vue";
+import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 
 defineProps({
   isVerboseViewOn: Boolean,

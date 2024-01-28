@@ -1,16 +1,16 @@
 <template>
-  <InfoCard v-if="nsSet" title="Key Set:">
+  <InfoCard v-if="contact" :title="title">
     <div class="d-flex">
       Handle:
       <div>
-        {{ nsSet.handle }}
+        {{ contact.handle }}
       </div>
     </div>
     <div class="d-flex">
-      Registrar:
-      <div>
-        {{ nsSet.registrar }}
-      </div>
+      <VisibleEyeIcon v-if="contact.publish.organization"></VisibleEyeIcon>
+      <HiddenEyeIcon v-else></HiddenEyeIcon>
+      Organization:
+      <div>{{ contact.organization }}</div>
     </div>
     <!--      <v-row class="d-flex justify-space-between">-->
     <!--        <v-col v-if="events.transferred?.timestamp"> Transfer date: </v-col>-->
@@ -20,9 +20,11 @@
     <!--        </v-col>-->
     <!--      </v-row>-->
     <div class="d-flex justify-space-between">
-      DNS keys:
+      <VisibleEyeIcon v-if="contact.publish.name"></VisibleEyeIcon>
+      <HiddenEyeIcon v-else></HiddenEyeIcon>
+      Name:
       <div>
-        {{ nsSet.dns }}
+        {{ contact.name }}
       </div>
     </div>
   </InfoCard>
@@ -30,11 +32,14 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
-import { NSSetTo } from "@/shared/models/domain-to";
-import InfoCard from "@/components/InfoCard.vue";
+import { ContactTo } from "@/shared/models/domain-to";
+import InfoCard from "@/components/section-cards-components/InfoCard.vue";
+import VisibleEyeIcon from "@/components/icons-components/VisibleEyeIcon.vue";
+import HiddenEyeIcon from "@/components/icons-components/HiddenEyeIcon.vue";
 
 defineProps({
-  nsSet: Object as PropType<NSSetTo>,
+  title: String,
+  contact: Object as PropType<ContactTo>,
 });
 </script>
 
