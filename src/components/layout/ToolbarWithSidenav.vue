@@ -1,8 +1,8 @@
 <template>
   <ToolBar></ToolBar>
   <v-row>
-    <v-col sm="2"><SideNav></SideNav></v-col>
-    <v-col sm="10"><slot></slot></v-col>
+    <v-col sm="0" md="2"><SideNav></SideNav></v-col>
+    <v-col sm="12" md="10"><slot></slot></v-col>
   </v-row>
 </template>
 

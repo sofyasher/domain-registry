@@ -16,6 +16,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .info-row {
+  width: 100%;
   max-width: 500px;
 }
 </style>
