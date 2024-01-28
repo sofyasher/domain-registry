@@ -3,7 +3,7 @@
     {{ domainData.fqdn }}
     <v-switch label="Verbose view" v-model="isVerboseViewOn"></v-switch>
     <v-row>
-      <v-col>
+      <v-col sm="8">
         <AuthInfoCard :expires-at="domainData.expires_at"></AuthInfoCard>
         <EventsCard :events="domainData.events"></EventsCard>
         <StateFlagsCard
@@ -11,7 +11,7 @@
           :state-flags="domainData.state_flags"
         ></StateFlagsCard
       ></v-col>
-      <v-col>
+      <v-col sm="4">
         <ContactCard title="Owner:" :contact="domainData.owner"></ContactCard>
         <AdministrativeContactsCard
           :is-verbose-view-on="isVerboseViewOn"

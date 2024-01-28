@@ -1,17 +1,15 @@
 <template>
-  <v-card v-if="stateFlags" variant="outlined">
-    <v-card-title>State flags</v-card-title>
-    <v-card-text>
-      <div v-for="flag in stateFlags.flags" v-bind:key="flag.name">
-        {{ flag.description }}
-      </div>
-    </v-card-text>
-  </v-card>
+  <InfoCard v-if="stateFlags" title="State flags">
+    <div v-for="flag in stateFlags.flags" v-bind:key="flag.name">
+      {{ flag.description }}
+    </div>
+  </InfoCard>
 </template>
 
 <script lang="ts" setup>
 import { PropType } from "vue";
 import { StateFlagsTo } from "@/shared/models/domain-to";
+import InfoCard from "@/components/InfoCard.vue";
 
 defineProps({
   isVerboseViewOn: Boolean,

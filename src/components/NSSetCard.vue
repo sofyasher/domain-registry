@@ -1,41 +1,37 @@
 <template>
-  <v-card v-if="nsSet" variant="outlined">
-    <v-card-item>
-      <v-card-title>Key Set:</v-card-title>
-    </v-card-item>
-    <v-card-text>
-      <div class="d-flex">
-        Handle:
-        <div>
-          {{ nsSet.handle }}
-        </div>
+  <InfoCard v-if="nsSet" title="Key Set:">
+    <div class="d-flex">
+      Handle:
+      <div>
+        {{ nsSet.handle }}
       </div>
-      <div class="d-flex">
-        Registrar:
-        <div>
-          {{ nsSet.registrar }}
-        </div>
+    </div>
+    <div class="d-flex">
+      Registrar:
+      <div>
+        {{ nsSet.registrar }}
       </div>
-      <!--      <v-row class="d-flex justify-space-between">-->
-      <!--        <v-col v-if="events.transferred?.timestamp"> Transfer date: </v-col>-->
-      <!--        <v-col v-if="events.transferred">-->
-      <!--          {{ events.transferred.timestamp }} Registrar:-->
-      <!--          {{ events.transferred.registrar_handle }}-->
-      <!--        </v-col>-->
-      <!--      </v-row>-->
-      <div class="d-flex justify-space-between">
-        DNS keys:
-        <div>
-          {{ nsSet.dns }}
-        </div>
+    </div>
+    <!--      <v-row class="d-flex justify-space-between">-->
+    <!--        <v-col v-if="events.transferred?.timestamp"> Transfer date: </v-col>-->
+    <!--        <v-col v-if="events.transferred">-->
+    <!--          {{ events.transferred.timestamp }} Registrar:-->
+    <!--          {{ events.transferred.registrar_handle }}-->
+    <!--        </v-col>-->
+    <!--      </v-row>-->
+    <div class="d-flex justify-space-between">
+      DNS keys:
+      <div>
+        {{ nsSet.dns }}
       </div>
-    </v-card-text></v-card
-  >
+    </div>
+  </InfoCard>
 </template>
 
 <script lang="ts" setup>
 import { PropType } from "vue";
 import { NSSetTo } from "@/shared/models/domain-to";
+import InfoCard from "@/components/InfoCard.vue";
 
 defineProps({
   nsSet: Object as PropType<NSSetTo>,

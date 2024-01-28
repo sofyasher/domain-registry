@@ -7,31 +7,21 @@
       :contact="contact"
     ></ContactCard>
   </template>
-  <template v-if="!isVerboseViewOn">
-    <v-card variant="outlined">
-      <v-card-item>
-        <v-card-title>Administrative contacts:</v-card-title>
-      </v-card-item>
-      <v-card-text>
-        <div
-          v-for="contact in contacts"
-          v-bind:key="contact.name"
-          class="d-flex"
-        >
-          {{ contact.name }}:
-          <div>
-            {{ contact.handle }}
-          </div>
-        </div>
-      </v-card-text></v-card
-    >
-  </template>
+  <InfoCard v-if="!isVerboseViewOn" title="Administrative contacts:">
+    <div v-for="contact in contacts" v-bind:key="contact.name" class="d-flex">
+      {{ contact.name }}:
+      <div>
+        {{ contact.handle }}
+      </div>
+    </div>
+  </InfoCard>
 </template>
 
 <script lang="ts" setup>
 import { PropType } from "vue";
 import { ContactTo } from "@/shared/models/domain-to";
 import ContactCard from "@/components/ContactCard.vue";
+import InfoCard from "@/components/InfoCard.vue";
 
 defineProps({
   isVerboseViewOn: Boolean,

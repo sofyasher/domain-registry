@@ -1,13 +1,12 @@
 <template>
-  <v-card v-if="expiresAt" variant="outlined">
-    <v-card-title>State flags</v-card-title>
-    <v-card-text>
-      <div>Expires at: {{ expiresAt }}</div></v-card-text
-    ></v-card
-  >
+  <InfoCard v-if="expiresAt" title="State flags">
+    <div>Expires at: {{ expiresAt }}</div>
+  </InfoCard>
 </template>
 
 <script lang="ts" setup>
+import InfoCard from "@/components/InfoCard.vue";
+
 defineProps({
   expiresAt: String,
 });
