@@ -1,3 +1,11 @@
 .highlighted-blue{
   color: blue;
 }
+
+.state-flag {
+  color: green;
+
+  &.inactive {
+    color: red;
+  }
+}

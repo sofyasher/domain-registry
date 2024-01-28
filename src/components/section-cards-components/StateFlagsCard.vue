@@ -18,7 +18,7 @@
     <template v-else>
       <div v-for="flag in activeFlags" v-bind:key="flag.name">
         <CheckIcon></CheckIcon>
-        <span class="flag">
+        <span class="state-flag">
           {{ flag.description }}
         </span>
       </div>

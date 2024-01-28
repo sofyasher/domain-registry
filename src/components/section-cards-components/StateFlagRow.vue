@@ -2,7 +2,7 @@
   <template v-if="flag">
     <CheckIcon v-if="flag.active"></CheckIcon>
     <CloseIcon v-else></CloseIcon>
-    <span class="flag" :class="{ inactive: !flag.active }">
+    <span class="state-flag" :class="{ inactive: !flag.active }">
       {{ flag.description }}
     </span>
   </template>
@@ -28,12 +28,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped lang="scss">
-.flag {
-  color: green;
-
-  &.inactive {
-    color: red;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
