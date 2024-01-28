@@ -22,12 +22,7 @@ export interface DomainTo {
   sponsoring_registrar: string;
   administrative_contacts: AdministrativeContactTo[];
   expires_at: string;
-  events: {
-    registered: EventTo;
-    transferred: EventTo;
-    updated: EventTo;
-    unregistered: boolean | null;
-  };
+  events: EventsTo;
   state_flags: {
     flags: StateFlagTo[];
     groups: string[][];
@@ -47,6 +42,13 @@ interface AdministrativeContactTo {
     organization: boolean;
     name: boolean;
   };
+}
+
+export interface EventsTo {
+  registered: EventTo;
+  transferred: EventTo | null;
+  updated: EventTo | null;
+  unregistered: EventTo | null;
 }
 
 interface EventTo {
