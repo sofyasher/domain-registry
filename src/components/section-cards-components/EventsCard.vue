@@ -1,34 +1,40 @@
 <template>
   <InfoCard v-if="events" title="Events:">
-    <div class="d-flex">
-      Create date:
-      <div>
+    <InfoRow>
+      <template v-slot:label>Create date:</template>
+      <template v-slot:info>
         {{ events.registered.timestamp.toLocaleString() }}
-        Registrar:
-        {{ events.registered.registrar_handle }}
-      </div>
-    </div>
-    <div class="d-flex">
-      Update date:
-      <div v-if="events.updated">
-        {{ events.updated.timestamp.toLocaleString() }} Registrar:
+      </template>
+    </InfoRow>
+    <InfoRow>
+      <template v-slot:label>Registrar:</template>
+      <template v-slot:info>{{ events.registered.registrar_handle }}</template>
+    </InfoRow>
+
+    <InfoRow>
+      <template v-slot:label>Update date:</template>
+      <template v-if="events.updated" v-slot:info>
+        {{ events.updated.timestamp.toLocaleString() }}
+        <strong>Registrar:</strong>
         {{ events.updated.registrar_handle }}
-      </div>
-    </div>
-    <v-row class="d-flex justify-space-between">
-      <v-col v-if="events.transferred?.timestamp"> Transfer date: </v-col>
-      <v-col v-if="events.transferred">
-        {{ events.transferred.timestamp.toLocaleString() }} Registrar:
+      </template>
+    </InfoRow>
+    <InfoRow>
+      <template v-slot:label>Transfer date:</template>
+      <template v-if="events.transferred" v-slot:info>
+        {{ events.transferred.timestamp.toLocaleString() }}
+        <strong>Registrar:</strong>
         {{ events.transferred.registrar_handle }}
-      </v-col>
-    </v-row>
-    <div class="d-flex justify-space-between">
-      Delete date:
-      <div v-if="events.unregistered">
-        {{ events.unregistered.timestamp.toLocaleString() }} Registrar:
+      </template>
+    </InfoRow>
+    <InfoRow>
+      <template v-slot:label>Delete date:</template>
+      <template v-if="events.unregistered" v-slot:info>
+        {{ events.unregistered.timestamp.toLocaleString() }}
+        <strong>Registrar:</strong>
         {{ events.unregistered.registrar_handle }}
-      </div>
-    </div>
+      </template>
+    </InfoRow>
   </InfoCard>
 </template>
 
@@ -36,6 +42,7 @@
 import { PropType } from "vue";
 import { EventsVM } from "@/shared/models/domain-vm";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
+import InfoRow from "@/components/InfoRow.vue";
 
 defineProps({
   events: Object as PropType<EventsVM>,

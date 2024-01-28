@@ -1,30 +1,25 @@
 <template>
   <InfoCard v-if="nsSet" title="Key Set:">
-    <div class="d-flex">
-      Handle:
-      <div>
+    <InfoRow>
+      <template v-slot:label>Handle:</template>
+      <template v-slot:info>
         {{ nsSet.handle }}
-      </div>
-    </div>
-    <div class="d-flex">
-      Registrar:
-      <div>
+      </template>
+    </InfoRow>
+    <InfoRow>
+      <template v-slot:label>Registrar:</template>
+      <template v-slot:info>
         {{ nsSet.registrar }}
-      </div>
-    </div>
-    <!--      <v-row class="d-flex justify-space-between">-->
-    <!--        <v-col v-if="events.transferred?.timestamp"> Transfer date: </v-col>-->
-    <!--        <v-col v-if="events.transferred">-->
-    <!--          {{ events.transferred.timestamp }} Registrar:-->
-    <!--          {{ events.transferred.registrar_handle }}-->
-    <!--        </v-col>-->
-    <!--      </v-row>-->
-    <div class="d-flex justify-space-between">
-      DNS keys:
-      <div>
-        {{ nsSet.dns }}
-      </div>
-    </div>
+      </template>
+    </InfoRow>
+    <InfoRow>
+      <template v-slot:label>DNS keys:</template>
+      <template v-slot:info>
+        <div v-for="dns in nsSet.dns" v-bind:key="dns.ip_address">
+          {{ dns.name }}
+        </div>
+      </template>
+    </InfoRow>
   </InfoCard>
 </template>
 
@@ -32,6 +27,7 @@
 import { PropType } from "vue";
 import { NSSetVM } from "@/shared/models/domain-vm";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
+import InfoRow from "@/components/InfoRow.vue";
 
 defineProps({
   nsSet: Object as PropType<NSSetVM>,

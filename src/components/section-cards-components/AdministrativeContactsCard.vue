@@ -8,12 +8,10 @@
     ></ContactCard>
   </template>
   <InfoCard v-else title="Administrative contacts:">
-    <div v-for="contact in contacts" v-bind:key="contact.name" class="d-flex">
-      {{ contact.name }}:
-      <div>
-        {{ contact.handle }}
-      </div>
-    </div>
+    <InfoRow v-for="contact in contacts" v-bind:key="contact.name">
+      <template v-slot:label>{{ contact.name }}:</template>
+      <template v-slot:info>{{ contact.handle }}</template>
+    </InfoRow>
   </InfoCard>
 </template>
 
@@ -22,6 +20,7 @@ import { PropType } from "vue";
 import { ContactVM } from "@/shared/models/domain-vm";
 import ContactCard from "@/components/section-cards-components/ContactCard.vue";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
+import InfoRow from "@/components/InfoRow.vue";
 
 defineProps({
   isVerboseViewOn: Boolean,

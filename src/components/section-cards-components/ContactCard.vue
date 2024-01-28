@@ -1,31 +1,24 @@
 <template>
   <InfoCard v-if="contact" :title="title">
-    <div class="d-flex">
-      Handle:
-      <div>
-        {{ contact.handle }}
-      </div>
-    </div>
+    <InfoRow>
+      <template v-slot:label>Handle:</template>
+      <template v-slot:info>{{ contact.handle }}</template>
+    </InfoRow>
     <div class="d-flex">
       <VisibleEyeIcon v-if="contact.publish.organization"></VisibleEyeIcon>
       <HiddenEyeIcon v-else></HiddenEyeIcon>
-      Organization:
-      <div>{{ contact.organization }}</div>
+      <InfoRow>
+        <template v-slot:label>Organization:</template>
+        <template v-slot:info>{{ contact.organization }}</template>
+      </InfoRow>
     </div>
-    <!--      <v-row class="d-flex justify-space-between">-->
-    <!--        <v-col v-if="events.transferred?.timestamp"> Transfer date: </v-col>-->
-    <!--        <v-col v-if="events.transferred">-->
-    <!--          {{ events.transferred.timestamp }} Registrar:-->
-    <!--          {{ events.transferred.registrar_handle }}-->
-    <!--        </v-col>-->
-    <!--      </v-row>-->
-    <div class="d-flex justify-space-between">
+    <div class="d-flex">
       <VisibleEyeIcon v-if="contact.publish.name"></VisibleEyeIcon>
       <HiddenEyeIcon v-else></HiddenEyeIcon>
-      Name:
-      <div>
-        {{ contact.name }}
-      </div>
+      <InfoRow>
+        <template v-slot:label>Name:</template>
+        <template v-slot:info>{{ contact.name }}</template>
+      </InfoRow>
     </div>
   </InfoCard>
 </template>
@@ -36,6 +29,7 @@ import { ContactVM } from "@/shared/models/domain-vm";
 import InfoCard from "@/components/section-cards-components/InfoCard.vue";
 import VisibleEyeIcon from "@/components/icons-components/VisibleEyeIcon.vue";
 import HiddenEyeIcon from "@/components/icons-components/HiddenEyeIcon.vue";
+import InfoRow from "@/components/InfoRow.vue";
 
 defineProps({
   title: String,
