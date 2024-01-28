@@ -4,7 +4,7 @@
       <template v-slot:label>Handle:</template>
       <template v-slot:info>{{ contact.handle }}</template>
     </InfoRow>
-    <div class="d-flex">
+    <div class="d-flex align-center">
       <VisibleEyeIcon v-if="contact.publish.organization"></VisibleEyeIcon>
       <HiddenEyeIcon v-else></HiddenEyeIcon>
       <InfoRow>
@@ -12,7 +12,7 @@
         <template v-slot:info>{{ contact.organization }}</template>
       </InfoRow>
     </div>
-    <div class="d-flex">
+    <div class="d-flex align-center">
       <VisibleEyeIcon v-if="contact.publish.name"></VisibleEyeIcon>
       <HiddenEyeIcon v-else></HiddenEyeIcon>
       <InfoRow>
@@ -37,5 +37,4 @@ defineProps({
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss"></style>

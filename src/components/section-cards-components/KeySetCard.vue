@@ -15,7 +15,13 @@
     <InfoRow>
       <template v-slot:label>DNS keys:</template>
       <template v-slot:info>
-        <div v-for="key in keySet.dns_keys" v-bind:key="key">{{ key }}</div>
+        <div
+          v-for="key in keySet.dns_keys"
+          v-bind:key="key"
+          class="key-set-dns"
+        >
+          {{ key }}
+        </div>
       </template>
     </InfoRow>
   </InfoCard>
@@ -32,5 +38,8 @@ defineProps({
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.key-set-dns {
+  word-break: break-all;
+}
+</style>

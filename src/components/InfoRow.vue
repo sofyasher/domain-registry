@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-space-between info-row">
+  <div class="d-md-flex justify-space-between align-center info-row">
     <div>
       <strong>
         <slot name="label"></slot>
@@ -13,7 +13,6 @@
 
 <script lang="ts" setup></script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .info-row {
   width: 100%;

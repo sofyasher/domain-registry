@@ -21,7 +21,6 @@ const items: { label: string; icon: string; isActive: boolean }[] = [
 ];
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .sidenav {
   padding: 20px 0;
