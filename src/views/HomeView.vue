@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import DomainDetail from "@/components/DomainDetail.vue";
+import DomainDetail from "@/pages/DomainDetail.vue";
 import ToolbarWithSidenav from "@/components/layout/ToolbarWithSidenav.vue"; // @ is an alias to /src
 
 export default defineComponent({
