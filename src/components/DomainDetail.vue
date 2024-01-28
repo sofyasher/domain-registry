@@ -4,6 +4,7 @@
     <KeySetCard :key-set="domainData.keyset"></KeySetCard>
     <NSSetCard :ns-set="domainData.nsset"></NSSetCard>
     <OwnerCard :owner="domainData.owner"></OwnerCard>
+    <StateFlagsCard :state-flags="domainData.state_flags"></StateFlagsCard>
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import EventsCard from "@/components/EventsCard.vue";
 import KeySetCard from "@/components/KeySetCard.vue";
 import NSSetCard from "@/components/NSSetCard.vue";
 import OwnerCard from "@/components/OwnerCard.vue";
+import StateFlagsCard from "@/components/StateFlagsCard.vue";
 
 const domainData = ref<DomainTo | null>(null);
 

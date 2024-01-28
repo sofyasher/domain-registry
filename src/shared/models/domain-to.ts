@@ -7,10 +7,7 @@ export interface DomainTo {
   administrative_contacts: AdministrativeContactTo[];
   expires_at: string;
   events: EventsTo;
-  state_flags: {
-    flags: StateFlagTo[];
-    groups: string[][];
-  };
+  state_flags: StateFlagsTo;
 }
 
 interface DnsItemTo {
@@ -66,4 +63,9 @@ interface StateFlagTo {
   name: string;
   active: boolean;
   description: string;
+}
+
+export interface StateFlagsTo {
+  flags: StateFlagTo[];
+  groups: string[][];
 }
