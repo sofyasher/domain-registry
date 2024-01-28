@@ -1,6 +1,7 @@
 <template>
   <div v-if="domainData" class="hello">
     <EventsCard :events="domainData.events"></EventsCard>
+    <KeySetCard :key-set="domainData.keyset"></KeySetCard>
   </div>
 </template>
 
@@ -9,6 +10,7 @@ import { onMounted, ref } from "vue";
 import { DomainTo } from "@/shared/models/domain-to";
 import { getDomainDetail } from "@/shared/requests/get-domain-detail";
 import EventsCard from "@/components/EventsCard.vue";
+import KeySetCard from "@/components/KeySetCard.vue";
 
 const domainData = ref<DomainTo | null>(null);
 

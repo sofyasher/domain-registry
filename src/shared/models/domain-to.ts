@@ -5,11 +5,7 @@ export interface DomainTo {
     registrar: string;
     dns: DnsItemTo[];
   };
-  keyset: {
-    handle: string;
-    registrar: string;
-    dns_keys: string[];
-  };
+  keyset: KeySetTo;
   owner: {
     handle: string;
     organization: string;
@@ -49,6 +45,12 @@ export interface EventsTo {
   transferred: EventTo | null;
   updated: EventTo | null;
   unregistered: EventTo | null;
+}
+
+export interface KeySetTo {
+  handle: string;
+  registrar: string;
+  dns_keys: string[];
 }
 
 interface EventTo {
