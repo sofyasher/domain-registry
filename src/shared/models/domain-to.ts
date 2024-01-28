@@ -49,7 +49,7 @@ interface EventTo {
   registrar_handle: string;
 }
 
-interface StateFlagTo {
+export interface StateFlagTo {
   name: string;
   active: boolean;
   description: string;
