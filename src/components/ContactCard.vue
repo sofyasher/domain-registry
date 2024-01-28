@@ -34,8 +34,8 @@
 import { PropType } from "vue";
 import { ContactTo } from "@/shared/models/domain-to";
 import InfoCard from "@/components/InfoCard.vue";
-import VisibleEyeIcon from "@/components/VisibleEyeIcon.vue";
-import HiddenEyeIcon from "@/components/HiddenEyeIcon.vue";
+import VisibleEyeIcon from "@/components/icons-components/VisibleEyeIcon.vue";
+import HiddenEyeIcon from "@/components/icons-components/HiddenEyeIcon.vue";
 
 defineProps({
   title: String,

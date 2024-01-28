@@ -1,7 +1,8 @@
 <template>
   <InfoCard v-if="stateFlags" title="State flags">
     <div v-for="flag in stateFlags.flags" v-bind:key="flag.name">
-      {{ flag.description }}
+      <CheckIcon v-if="flag.active"></CheckIcon>
+      <CloseIcon v-if="!flag.active"></CloseIcon> {{ flag.description }}
     </div>
   </InfoCard>
 </template>
@@ -10,6 +11,8 @@
 import { PropType } from "vue";
 import { StateFlagsTo } from "@/shared/models/domain-to";
 import InfoCard from "@/components/InfoCard.vue";
+import CheckIcon from "@/components/icons-components/CheckIcon.vue";
+import CloseIcon from "@/components/icons-components/CloseIcon.vue";
 
 defineProps({
   isVerboseViewOn: Boolean,
