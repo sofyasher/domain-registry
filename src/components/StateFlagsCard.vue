@@ -4,9 +4,9 @@
     <v-card-text>
       <div v-for="flag in stateFlags.flags" v-bind:key="flag.name">
         {{ flag.description }}
-      </div></v-card-text
-    ></v-card
-  >
+      </div>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script lang="ts" setup>
@@ -14,6 +14,7 @@ import { PropType } from "vue";
 import { StateFlagsTo } from "@/shared/models/domain-to";
 
 defineProps({
+  isVerboseViewOn: Boolean,
   stateFlags: Object as PropType<StateFlagsTo>,
 });
 </script>

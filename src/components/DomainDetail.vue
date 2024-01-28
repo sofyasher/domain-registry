@@ -1,11 +1,15 @@
 <template>
   <div v-if="domainData" class="hello">
     {{ domainData.fqdn }}
+    <v-switch label="Verbose view" v-model="isVerboseViewOn"></v-switch>
     <v-row>
       <v-col>
         <AuthInfoCard :expires-at="domainData.expires_at"></AuthInfoCard>
         <EventsCard :events="domainData.events"></EventsCard>
-        <StateFlagsCard :state-flags="domainData.state_flags"></StateFlagsCard
+        <StateFlagsCard
+          :is-verbose-view-on="isVerboseViewOn"
+          :state-flags="domainData.state_flags"
+        ></StateFlagsCard
       ></v-col>
       <v-col>
         <OwnerCard :owner="domainData.owner"></OwnerCard>
@@ -28,6 +32,7 @@ import StateFlagsCard from "@/components/StateFlagsCard.vue";
 import AuthInfoCard from "@/components/AuthInfoCard.vue";
 
 const domainData = ref<DomainTo | null>(null);
+const isVerboseViewOn = ref<boolean>(false);
 
 onMounted(() => {
   getDomainDetail().then(({ data }) => {
