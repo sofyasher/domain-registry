@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import { APP_NAME, USER_NAME } from "@/shared/constants";
 import { ref } from "vue";
-import UserInfo from "@/components/User-Info.vue";
+import UserInfo from "@/components/UserInfo.vue";
 
 const userInfoShown = ref<boolean>(false);
 </script>

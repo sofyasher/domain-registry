@@ -5,6 +5,7 @@
       <template v-slot:info>
         <v-btn
           color="blue"
+          class="auth-info-btn"
           v-if="!isPasswordShown"
           @click="isPasswordShown = true"
         >
@@ -33,4 +34,8 @@ defineProps({
 const isPasswordShown = ref<boolean>(false);
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.auth-info-btn {
+  height: 30px;
+}
+</style>

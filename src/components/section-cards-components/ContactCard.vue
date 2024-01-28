@@ -2,7 +2,9 @@
   <InfoCard v-if="contact" :title="title">
     <InfoRow>
       <template v-slot:label>Handle:</template>
-      <template v-slot:info>{{ contact.handle }}</template>
+      <template v-slot:info>
+        <span class="highlighted-blue">{{ contact.handle }}</span>
+      </template>
     </InfoRow>
     <div class="d-flex align-center">
       <VisibleEyeIcon v-if="contact.publish.organization"></VisibleEyeIcon>

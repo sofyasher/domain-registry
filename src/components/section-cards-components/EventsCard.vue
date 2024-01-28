@@ -9,9 +9,11 @@
       </InfoRow>
       <InfoRow>
         <template v-slot:label>Registrar:</template>
-        <template v-slot:info>{{
-          events.registered.registrar_handle
-        }}</template>
+        <template v-slot:info>
+          <span class="highlighted-blue">
+            {{ events.registered.registrar_handle }}
+          </span>
+        </template>
       </InfoRow>
     </div>
     <div class="d-md-flex events-card-row">
@@ -24,7 +26,9 @@
       <InfoRow v-if="events.updated">
         <template v-slot:label>Registrar:</template>
         <template v-slot:info>
-          {{ events.updated.registrar_handle }}
+          <span class="highlighted-blue">
+            {{ events.updated.registrar_handle }}
+          </span>
         </template>
       </InfoRow>
     </div>
@@ -39,7 +43,9 @@
       <InfoRow v-if="events.transferred">
         <template v-slot:label>Registrar:</template>
         <template v-slot:info>
-          {{ events.transferred.registrar_handle }}
+          <span class="highlighted-blue">
+            {{ events.transferred.registrar_handle }}
+          </span>
         </template>
       </InfoRow>
     </div>
@@ -54,7 +60,9 @@
       <InfoRow v-if="events.unregistered">
         <template v-slot:label>Registrar:</template>
         <template v-slot:info>
-          {{ events.unregistered.registrar_handle }}
+          <span class="highlighted-blue">
+            {{ events.unregistered.registrar_handle }}
+          </span>
         </template>
       </InfoRow>
     </div>

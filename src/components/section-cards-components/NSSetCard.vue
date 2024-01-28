@@ -3,13 +3,17 @@
     <InfoRow>
       <template v-slot:label>Handle:</template>
       <template v-slot:info>
-        {{ nsSet.handle }}
+        <span class="highlighted-blue">
+          {{ nsSet.handle }}
+        </span>
       </template>
     </InfoRow>
     <InfoRow>
       <template v-slot:label>Registrar:</template>
       <template v-slot:info>
-        {{ nsSet.registrar }}
+        <span class="highlighted-blue">
+          {{ nsSet.registrar }}
+        </span>
       </template>
     </InfoRow>
     <InfoRow>

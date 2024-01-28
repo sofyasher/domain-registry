@@ -10,7 +10,9 @@
   <InfoCard v-else title="Administrative contacts:">
     <InfoRow v-for="contact in contacts" v-bind:key="contact.name">
       <template v-slot:label>{{ contact.name }}:</template>
-      <template v-slot:info>{{ contact.handle }}</template>
+      <template v-slot:info>
+        <span class="highlighted-blue">{{ contact.handle }}</span>
+      </template>
     </InfoRow>
   </InfoCard>
 </template>

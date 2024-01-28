@@ -2,7 +2,6 @@
   <div class="user-info-wrapper">
     <v-card
       class="mx-auto"
-      max-width="300"
       :title="USER_NAME"
       :subtitle="USER_ROLE"
       prepend-icon="mdi-account"
@@ -25,5 +24,10 @@ import { USER_NAME, USER_ROLE } from "@/shared/constants";
   height: 100px;
   box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
   background-color: #ffffff;
+  z-index: 9999;
+
+  @media (max-width: 375px) {
+    width: 90vw;
+  }
 }
 </style>

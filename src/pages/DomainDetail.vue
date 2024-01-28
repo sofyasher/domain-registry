@@ -1,5 +1,5 @@
 <template>
-  <div v-if="domainData" class="pa-10">
+  <div v-if="domainData" class="pa-6">
     {{ domainData.fqdn }}
     <v-switch label="Verbose view" v-model="isVerboseViewOn"></v-switch>
     <v-row>
@@ -20,8 +20,8 @@
           :is-verbose-view-on="isVerboseViewOn"
           :contacts="domainData.administrative_contacts"
         ></AdministrativeContactsCard>
-        <KeySetCard :key-set="domainData.keyset"></KeySetCard>
         <NSSetCard :ns-set="domainData.nsset"></NSSetCard>
+        <KeySetCard :key-set="domainData.keyset"></KeySetCard>
       </v-col>
     </v-row>
   </div>
