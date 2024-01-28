@@ -7,10 +7,10 @@
       </div>
     </div>
     <div class="d-flex">
+      <VisibleEyeIcon v-if="contact.publish.organization"></VisibleEyeIcon>
+      <HiddenEyeIcon v-if="!contact.publish.organization"></HiddenEyeIcon>
       Organization:
-      <div>
-        {{ contact.organization }}
-      </div>
+      <div>{{ contact.organization }}</div>
     </div>
     <!--      <v-row class="d-flex justify-space-between">-->
     <!--        <v-col v-if="events.transferred?.timestamp"> Transfer date: </v-col>-->
@@ -20,6 +20,8 @@
     <!--        </v-col>-->
     <!--      </v-row>-->
     <div class="d-flex justify-space-between">
+      <VisibleEyeIcon v-if="contact.publish.name"></VisibleEyeIcon>
+      <HiddenEyeIcon v-if="!contact.publish.name"></HiddenEyeIcon>
       Name:
       <div>
         {{ contact.name }}
@@ -32,6 +34,8 @@
 import { PropType } from "vue";
 import { ContactTo } from "@/shared/models/domain-to";
 import InfoCard from "@/components/InfoCard.vue";
+import VisibleEyeIcon from "@/components/VisibleEyeIcon.vue";
+import HiddenEyeIcon from "@/components/HiddenEyeIcon.vue";
 
 defineProps({
   title: String,
